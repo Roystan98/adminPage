@@ -1,0 +1,270 @@
+{
+  "Details": [
+    {
+      "empId": "001",
+      "empName": "test",
+      "date": "28/09/2022",
+      "managerId": "01",
+      "managerName": "tester",
+      "companyCode": "C001",
+      "location": "Mumbai",
+      "department": "Digital",
+      "appoint": [
+        {
+          "sdate": "2022/10/1",
+        "edate": "2022/10/30",
+          "stext": "late",
+          "type": "Type01"
+        },
+        {
+          "sdate": "2022/10/1",
+        "edate": "2022/10/2",
+          "stext": "late",
+          "type": "Type01"
+        },
+        {
+          "sdate": "2022/09/01",
+          "edate": "2022/09/30",
+          "stext": "Early",
+          "type": "Type02"
+        }
+      ]
+    },
+    {
+      "empId": "10",
+      "empName": "test",
+      "date": "28/09/2022",
+      "managerId": "02",
+      "managerName": "tester",
+      "companyCode": "C001",
+      "location": "Mumbai",
+      "department": "Digital",
+      "appoint": [
+        {
+          "sdate": "2022/10/1",
+        "edate": "2022/10/30",
+          "stext": "late",
+          "type": "Type03"
+        },
+        {
+          "sdate": "2022/09/01",
+          "edate": "2022/09/30",
+          "stext": "Early",
+          "type": "Type04"
+        }
+      ]
+    },
+    {
+      "empId": "20",
+      "empName": "test",
+      "date": "28/09/2022",
+      "managerId": "21",
+      "managerName": "tester",
+      "companyCode": "C001",
+      "location": "Mumbai",
+      "department": "Digital",
+      "appoint": [
+        {
+          "sdate": "2022/10/1",
+        "edate": "2022/10/30",
+          "stext": "late",
+          "type": "Type05"
+        },
+        {
+          "sdate": "2022/09/01",
+          "edate": "2022/09/30",
+          "stext": "Early",
+          "type": "Type06"
+        }
+      ]
+    },
+    {
+      "empId": "30",
+      "empName": "test",
+      "date": "28/09/2022",
+      "managerId": "01",
+      "managerName": "tester",
+      "companyCode": "C001",
+      "location": "Mumbai",
+      "department": "Digital",
+      "appoint": [
+        {
+          "sdate": "2022/10/1",
+        "edate": "2022/10/30",
+          "stext": "late",
+          "type": "Type01"
+        },
+        {
+          "sdate": "2022/09/01",
+          "edate": "2022/09/30",
+          "stext": "Early",
+          "type": "Type02"
+        }
+      ]
+    },
+    {
+      "empId": "40",
+      "empName": "test",
+      "date": "28/09/2022",
+      "managerId": "02",
+      "managerName": "tester",
+      "companyCode": "C001",
+      "location": "Mumbai",
+      "department": "Digital",
+      "appoint": [
+        {
+          "sdate": "2022/10/1",
+        "edate": "2022/10/30",
+          "stext": "late",
+          "type": "Type03"
+        },
+        {
+          "sdate": "2022/09/01",
+          "edate": "2022/09/30",
+          "stext": "Early",
+          "type": "Type04"
+        }
+      ]
+    },
+    {
+      "empId": "50",
+      "empName": "test",
+      "date": "28/09/2022",
+      "managerId": "21",
+      "managerName": "tester",
+      "companyCode": "C001",
+      "location": "Mumbai",
+      "department": "Digital",
+      "appoint": [
+        {
+          "sdate": "2022/10/1",
+        "edate": "2022/10/30",
+          "stext": "late",
+          "type": "Type05"
+        },
+        {
+          "sdate": "2022/09/01",
+          "edate": "2022/09/30",
+          "stext": "Early",
+          "type": "Type06"
+        }
+      ]
+    },
+    {
+      "empId": "60",
+      "empName": "test",
+      "date": "28/09/2022",
+      "managerId": "01",
+      "managerName": "tester",
+      "companyCode": "C001",
+      "location": "Mumbai",
+      "department": "Digital",
+      "appoint": [
+        {
+          "sdate": "2022/10/1",
+        "edate": "2022/10/30",
+          "stext": "late",
+          "type": "Type01"
+        },
+        {
+          "sdate": "2022/09/01",
+          "edate": "2022/09/30",
+          "stext": "Early",
+          "type": "Type02"
+        }
+      ]
+    },
+    {
+      "empId": "70",
+      "empName": "test",
+      "date": "28/09/2022",
+      "managerId": "02",
+      "managerName": "tester",
+      "companyCode": "C001",
+      "location": "Mumbai",
+      "department": "Digital",
+      "appoint": [
+        {
+          "sdate": "2022/10/1",
+        "edate": "2022/10/30",
+          "stext": "late",
+          "type": "Type03"
+        },
+        {
+          "sdate": "2022/09/01",
+          "edate": "2022/09/30",
+          "stext": "Early",
+          "type": "Type04"
+        }
+      ]
+    },
+    {
+      "empId": "80",
+      "empName": "test",
+      "date": "28/09/2022",
+      "managerId": "21",
+      "managerName": "tester",
+      "companyCode": "C001",
+      "location": "Mumbai",
+      "department": "Digital",
+      "appoint": [
+        {
+          "sdate": "2022/10/1",
+        "edate": "2022/10/30",
+          "stext": "late",
+          "type": "Type05"
+        },
+        {
+          "sdate": "2022/09/01",
+          "edate": "2022/09/30",
+          "stext": "Early",
+          "type": "Type06"
+        }
+      ]
+    },
+    {
+      "empId": "201",
+      "empName": "test",
+      "date": "28/09/2022",
+      "managerId": "22",
+      "managerName": "tester",
+      "companyCode": "C001",
+      "location": "Mumbai",
+      "department": "Digital",
+      "appoint": [
+        {
+          "sdate": "2022/10/1",
+        "edate": "2022/10/30",
+          "stext": "late",
+          "type": "Type07"
+        },
+        {
+          "sdate": "2022/09/01",
+          "edate": "2022/09/30",
+          "stext": "Early",
+          "type": "Type08"
+        }
+      ]
+    },
+    {
+      "empId": "002",
+      "empName": "test",
+      "date": "28/09/2022",
+      "managerId": "301",
+      "managerName": "tester",
+      "companyCode": "C003",
+      "location": "Mumbai",
+      "department": "Digital"
+    },
+    {
+      "empId": "004",
+      "empName": "test",
+      "date": "28/09/2022",
+      "managerId": "01",
+      "managerName": "tester",
+      "companyCode": "C003",
+      "location": "Mumbai",
+      "department": "Digital"
+    }
+  ]
+}

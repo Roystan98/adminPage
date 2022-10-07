@@ -1,0 +1,48 @@
+{
+    "compCode":[
+        {
+            "key":0,
+            "value":"C001"
+        },
+        {
+            "key": 1,
+            "value": "C002"
+        },
+        {
+            "key": 2,
+            "value": "C003"
+        },
+        {
+            "key": 3,
+            "value": "C004"
+        }
+    ],
+    "location":[
+        {
+            "key":0,
+            "value":"Mumbai"
+        },
+        {
+            "key": 1,
+            "value": "Pune"
+        },
+        {
+            "key": 2,
+            "value": "Chennai"
+        }
+    ],
+    "department":[
+        {
+            "key":0,
+            "value":"Digital"
+        },
+        {
+            "key": 1,
+            "value": "ABAP"
+        },
+        {
+            "key": 2,
+            "value": "CPI"
+        }
+    ]
+}

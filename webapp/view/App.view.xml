@@ -1,0 +1,23 @@
+<mvc:View controllerName="com.lti.admin.controller.App"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m" height="100%" >
+    <!-- <Shell id="shell"> -->
+
+        <!-- <App id="app">-->
+
+         <!-- <pages>   -->
+
+
+
+    <Page id="app" title="{i18n>title}">
+        <content>
+            <mvc:XMLView id="beginView" viewName="com.lti.admin.view.AdminMaster"/>
+        </content>
+    </Page>
+    
+<!-- </pages> -->
+
+      <!--  </App> -->
+
+  <!--  </Shell> -->
+</mvc:View>

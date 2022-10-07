@@ -1,0 +1,227 @@
+<mvc:View controllerName="com.lti.admin.controller.AdminMaster" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" height="100%" xmlns:unified="sap.ui.unified" xmlns:core="sap.ui.core" xmlns="sap.m" id="AdminMaster" xmlns:t="sap.ui.table" xmlns:html="http://www.w3.org/1999/xhtml">
+    <Page showHeader="false">
+        <content id="tblContent">
+            <t:Table id="employeeTbl" rows="{employeeModel>/}" selectionMode="MultiToggle" visibleRowCount="17" paste="onPaste" ariaLabelledBy="title">
+                <t:extension>
+                    <OverflowToolbar style="Clear">
+                        <Title id="title" text="{i18n>tblTitle}" />
+                        <ToolbarSpacer />
+                        <Button icon="sap-icon://calendar" text="{i18n>btnToShiftPlaning}" press="onShiftPlanningPress" />
+                    </OverflowToolbar>
+                </t:extension>
+                <t:columns class="sapUiSmallMarginTop">
+                    <t:Column width="11rem">
+                        <Label text="Employee Id" />
+                        <t:template>
+                            <Text text="{employeeModel>empId}" wrapping="false" />
+                        </t:template>
+                    </t:Column>
+                    <t:Column width="11rem">
+                        <Label text="Employee Name" />
+                        <t:template>
+                            <Text text="{employeeModel>empName}" wrapping="false" />
+                        </t:template>
+                    </t:Column>
+                    <t:Column width="11rem">
+                        <Label text="Date" />
+                        <t:template>
+                            <Text text="{employeeModel>date}" wrapping="false" />
+                        </t:template>
+                    </t:Column>
+                    <t:Column width="11rem">
+                        <Label text="Manager Id" />
+                        <t:template>
+                            <Text text="{employeeModel>managerId}" wrapping="false" />
+                        </t:template>
+                    </t:Column>
+                    <t:Column width="11rem">
+                        <Label text="Manager Name" />
+                        <t:template>
+                            <Text text="{employeeModel>managerName}" wrapping="false" />
+                        </t:template>
+                    </t:Column>
+                </t:columns>
+            </t:Table>
+            <VBox id="plCal" visible="false" height="100%">
+                <HBox height="100%">
+                    <VBox id="planCalBox" width="80%">
+                        <ScrollContainer height="100%" width="100%" vertical="true" focusable="true">
+                            <PlanningCalendar
+                                stickyHeader="true"
+                                id="PC1"
+                                visible="true"
+                                width="100%"
+                                viewKey="D"
+                                singleSelection="true"
+                                showIntervalHeaders="false"
+                                startDate="{path: 'oPlModel>/0/startDate' ,formatter:'.formatter.dateFormatter'}"
+                                rows="{path: 'oPlModel>/0/people'}"
+                                appointmentsVisualization="Filled"
+                                appointmentSelect="handleAppointmentSelect"
+                                intervalSelect="handleIntervalSelect"
+                                rowSelectionChange="onRowHeaderClicked"
+                            >
+                                <toolbarContent>
+                                    <Title text="Shift Planner" titleStyle="H4" />
+                                    <ComboBox id="empCombo" selectionChange="onEmpChange" items="{
+                                            path: 'oEmpModel>/'
+                                        }">
+                                        <!-- <core:Item key="000" text="All" /> -->
+                                        <core:Item key="{path:'oEmpModel>key'}" text="{path:'oEmpModel>value'}" />
+                                    </ComboBox>
+                                </toolbarContent>
+                                <views>
+                                    <PlanningCalendarView key="D" intervalType="Day" description="Days" intervalsS="1" intervalsM="3" intervalsL="7" showSubIntervals="true" />
+                                    <PlanningCalendarView key="A" intervalType="Week" description="Week" intervalsS="2" intervalsM="4" intervalsL="6" showSubIntervals="true" />
+                                    <PlanningCalendarView key="M" intervalType="OneMonth" description="Month" intervalsS="1" intervalsM="2" intervalsL="3" showSubIntervals="true" />
+                                    <!-- <PlanningCalendarView key="nonWorking" intervalType="Day" description="days with non-working dates" intervalsS="1" intervalsM="5" intervalsL="9" /> -->
+                                </views>
+                                <rows>
+                                    <PlanningCalendarRow icon="{oplModel>pic}" title="{oPlModel>empId}" text="{oplModel>role}" appointments="{path : 'oPlModel>Appointments', templateShareable: false}">
+                                        <appointments>
+                                            <unified:CalendarAppointment
+                                                startDate="{path:'oPlModel>sdate',formatter:'.formatter.dateFormatter'}"
+                                                endDate="{path:'oPlModel>ldate',formatter:'.formatter.dateFormatter'}"
+                                                title="{path:'oPlModel>text'}"
+                                                text="{path:'oPlModel>text'}"
+                                                type="{path:'oPlModel>type'}"
+                                                icon="{pic}"
+                                                tentative="{tentative}"
+                                            />
+                                        </appointments>
+                                    </PlanningCalendarRow>
+                                </rows>
+                            </PlanningCalendar>
+                            <SinglePlanningCalendar
+                                id="SPC1"
+                                visible="false"
+                                class="sapUiSmallMarginTop"
+                                title="Shift Planner"
+                                viewChange="handleViewChange"
+                                appointmentSelect="handleAppointmentSelect2"
+                                headerDateSelect="handleHeaderDateSelect"
+                                startDateChange="handleStartDateChange"
+                                appointmentDrop="handleAppointmentDrop"
+                                appointmentResize="handleAppointmentResize"
+                                appointmentCreate="handleAppointmentCreateDnD"
+                                moreLinkPress="handleMoreLinkPress"
+                                startDate="{path: 'oSingleCalModel>/1/startDate',formatter:'.formatter.dateFormatter'}"
+                                enableAppointmentsDragAndDrop="{settings>/enableAppointmentsDragAndDrop}"
+                                enableAppointmentsResize="{settings>/enableAppointmentsResize}"
+                                enableAppointmentsCreate="{settings>/enableAppointmentsCreate}"
+                                stickyMode="{settings>/stickyMode}"
+                                appointments="{path: 'oSingleCalModel>/0/Appointments'}"
+                            >
+                                <actions>
+                                <ComboBox id="empCombo2" selectionChange="onEmpChange" items="{
+                                            path: 'oEmpModel>/'
+                                        }">
+                                        <!-- <core:Item key="000" text="All" /> -->
+                                        <core:Item key="{path:'oEmpModel>key'}" text="{path:'oEmpModel>value'}" />
+                                    </ComboBox>
+                                    <Button id="addNewAppointment" text="Create" press="handleAppointmentCreate" tooltip="Add new appointment" />
+                                </actions>
+                                <views>
+                                    <SinglePlanningCalendarDayView key="DayView" title="Day" />
+                                    <SinglePlanningCalendarWeekView key="WeekView" title="Week" />
+                                    <SinglePlanningCalendarMonthView key="MonthView" title="Month" />
+                                </views>
+                                <appointments>
+                                    <unified:CalendarAppointment title="{oSingleCalModel>text}" text="{oSingleCalModel>text}" type="{oSingleCalModel>type}" icon="{icon}" startDate="{path:'oSingleCalModel>sdate',formatter:'.formatter.dateFormatter'}" endDate="{path:'oSingleCalModel>ldate',formatter:'.formatter.dateFormatter'}" />
+                                </appointments>
+                            </SinglePlanningCalendar>
+                        </ScrollContainer>
+                    </VBox>
+                    <VBox id="propPan" backgroundDesign="Solid" width="20%" height="100%">
+                        <ScrollContainer id="toHide" height="100%" width="100%" vertical="true" focusable="true">
+                            <Panel width="auto" class="sapUiResponsiveMargin" accessibleRole="Region" height="100%">
+                                <headerToolbar>
+                                    <OverflowToolbar>
+                                        <Title text="Shift Optimizer" />
+                                        <!-- <ToolbarSpacer />
+                                        <Button id="inDent" icon="sap-icon://indent" press="onIndentClick"/> -->
+                                    </OverflowToolbar>
+                                </headerToolbar>
+                                <content>
+                                    <HBox>
+                                        <RadioButtonGroup id="GroupB">
+                                            <RadioButton selected="true" />
+                                            <RadioButton />
+                                            <RadioButton />
+                                        </RadioButtonGroup>
+                                        <VBox>
+                                            <HBox class="sapUiTinyMarginTop sapUiTinyMarginBottom">
+                                                <core:Icon id="iconId" src="sap-icon://border" size="15px" color="black" backgroundColor="blue" width="auto" height="auto" />
+                                                <Text class="sapUiTinyMarginBegin" id="legendId" text="Early " textAlign="Left" width="auto" />
+                                            </HBox>
+                                            <HBox class="sapUiTinyMarginTop sapUiTinyMarginBottom">
+                                                <core:Icon id="iconIda" src="sap-icon://border" size="15px" color="black" backgroundColor="orange" width="auto" height="auto" />
+                                                <Text class="sapUiTinyMarginBegin" id="legendIdint" text="Mid" textAlign="Left" width="auto" />
+                                            </HBox>
+                                            <HBox class="sapUiTinyMarginTop">
+                                                <core:Icon id="iconIdb" src="sap-icon://border" size="15px" color="black" backgroundColor="green" width="auto" height="auto" />
+                                                <Text class="sapUiTinyMarginBegin" id="legendIdb" text="Late" textAlign="Left" width="auto" />
+                                            </HBox>
+                                        </VBox>
+                                    </HBox>
+                                    <!-- <HBox class="sapUiTinyMarginTop" justifyContent="Center">
+                                        <Button icon="sap-icon://add" type="Accept" text="Create Custom Shift"/>
+                                    </HBox> -->
+                                </content>
+                            </Panel>
+                            <html:hr width="80%" />
+                            <Panel id="shiftDetails" visible="false" width="auto" class="sapUiResponsiveMargin" accessibleRole="Region">
+                                <headerToolbar>
+                                    <OverflowToolbar>
+                                        <Title text="Shift Details" />
+                                        <ToolbarSpacer />
+                                        <ToggleButton id="plEditBtn" type="Default" icon="sap-icon://edit" press="onEditPlanPress" />
+                                    </OverflowToolbar>
+                                </headerToolbar>
+                                <content>
+                                    <VBox>
+                                        <Label text="Start Date" />
+                                        <DatePicker valueFormat="yyyy-MM-dd" id="vStDate" editable="false" />
+                                    </VBox>
+                                    <VBox>
+                                        <Label text="End Date" />
+                                        <DatePicker valueFormat="yyyy-MM-dd" id="vEDate" editable="false" />
+                                    </VBox>
+                                    <VBox>
+                                        <Label text="Title" />
+                                        <Input id="vTitle" editable="false" />
+                                    </VBox>
+                                    <VBox>
+                                        <Label text="Text" />
+                                        <Input id="vText" editable="false" />
+                                    </VBox>
+                                    <!-- <HBox alignItems="Center">
+                                        <Label text="Tentative" vAlign="Middle"/>
+                                        <Switch id="swt" editable="false" state="true" customTextOn="Yes" customTextOff="No">
+                                            <layoutData>
+                                                <FlexItemData growFactor="1" />
+                                            </layoutData>
+                                        </Switch>
+                                    </HBox> -->
+                                    <html:hr />
+                                    <HBox justifyContent="Center">
+                                        <Button id="shDelBtn" type="Reject" icon="sap-icon://delete" text="Delete" visible="true" />
+                                        <Button id="shDetBtn" type="Accept" icon="sap-icon://arrow-top" text="Update" visible="false" />
+                                    </HBox>
+                                </content>
+                            </Panel>
+                        </ScrollContainer>
+                    </VBox>
+                </HBox>
+            </VBox>
+        </content>
+        <footer>
+            <OverflowToolbar>
+                <ToolbarSpacer />
+                <Button id="mBackBtn" type="Back" text="Back" press="onBackPress" visible="false" />
+                <Button id="mUpBtn" type="Success" text="Submit" press="onSubmitPress" visible="false" />
+                <Button id="exitBtn" type="Negative" text="Exit" press="onExitBtnPress" />
+            </OverflowToolbar>
+        </footer>
+    </Page>
+</mvc:View>

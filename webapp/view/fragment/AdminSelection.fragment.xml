@@ -1,0 +1,83 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:layout="sap.ui.layout" xmlns:f="sap.ui.layout.form"
+	xmlns:t="sap.ui.table" xmlns:html="http://www.w3.org/1999/xhtml">
+	<Dialog id="idAdminSelectionView" resizable="true" draggable="true" contentHeight="320px" contentWidth="720px" title="{i18n>fragTitle}">
+		<App>
+			<pages >
+				<Page showHeader="false">
+					<content>
+						<HBox class="bpadBottom">
+                <VBox class="sapUiLargeMarginBegin sapUiMediumMarginTop sapUiSmallMarginBottom">
+                    <Label text="{i18n>fragCompCode}" required="true"/>
+                    <ComboBox id="fragCompCombo"
+                        items="{
+                            path: 'appData>/compCode',
+                            sorter: { path: 'value' }
+                        }">
+                        <core:Item key="{appData>key}" text="{appData>value}" />
+                    </ComboBox>
+                </VBox>
+                <VBox class="sapUiMediumMarginBegin sapUiMediumMarginTop sapUiSmallMarginBottom">
+                    <Label text="{i18n>fragLoc}" required="true"/>
+                    <ComboBox id="fragLocCombo"
+                        items="{
+                            path: 'appData>/location',
+                            sorter: { path: 'value' }
+                        }">
+                        <core:Item key="{appData>key}" text="{appData>value}" />
+                    </ComboBox>
+                </VBox>
+                <VBox class="sapUiMediumMarginBegin sapUiMediumMarginTop sapUiSmallMarginBottom sapUiLargeMarginEnd">
+                    <Label text="{i18n>fragDept}" required="true"/>
+                    <ComboBox id="fragDeptCombo"
+                        items="{
+                            path: 'appData>/department',
+                            sorter: { path: 'value' }
+                        }">
+                        <core:Item key="{appData>key}" text="{appData>value}" />
+                    </ComboBox>
+                </VBox>
+            </HBox>
+            <html:hr/>
+            <Label class="sapUiLargeMarginBegin" text="{i18n>fragDateSec}"/>
+            <html:hr/>
+            <HBox class="sapUiLargeMarginBegin">
+                <VBox justifyContent="SpaceAround" class="sapUiMediumMarginEnd">
+                    <Label text="{i18n>fragCurMonth}:"/>
+                    <Label text="{i18n>fragPastMonth}:"/>
+                    <Label text="{i18n>fragDate}:"/>      
+                </VBox>
+                <VBox>
+                    <Input
+                    id="curMonthDP1"
+                    placeholder="Current Month"
+                    editable="false"
+                    />
+                    <Input
+                    id="pastMonthDP2"
+                    placeholder="Past Month"
+                    editable="false"
+                    />
+                    <DateRangeSelection
+                    id="DRS3"
+                    showCurrentDateButton="true"
+                    showFooter="true"
+                    change="handleChange"/>
+                </VBox>
+                <VBox class="sapUiSmallMarginBegin">
+                    <RadioButtonGroup id="GroupA" select="onSelectChange">
+                        <RadioButton  selected="true" />
+                        <RadioButton  />
+                        <RadioButton  />
+                    </RadioButtonGroup>
+                </VBox>
+            </HBox>
+					</content>
+				</Page>
+			</pages>
+		</App>
+		<buttons>
+			<Button text="{i18n>fragSubmitBtn}" type="Success" press="onSubmitPress"/>
+			<!-- <Button text="{i18n>fragCancelBtn}" type="Negative" press="onFragmentCancel"/> -->
+		</buttons>
+	</Dialog>
+</core:FragmentDefinition>
